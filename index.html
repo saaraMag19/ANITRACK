@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickup & Drop-off Points</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            background: url('UniversityPicture.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Pickup & Drop-off Locations</h1>
+
+        <label for="pickup">Pickup Location:</label>
+        <select id="pickup">
+            <option value="Mayuri AB">Mayuri AB</option>
+            <option value="Underbelly">Underbelly</option>
+            <option value="Safal AB">Safal AB</option>
+            <option value="Stationary AB">Stationary AB</option>
+            <option value="AB Dakshin">AB Dakshin</option>
+            <option value="Bistro">Bistro</option>
+            <option value="Mayuri Night Canteen">Mayuri Night Canteen</option>
+            <option value="Mayuri Store">Mayuri Store</option>
+            <option value="CRCL Night Canteen">CRCL Night Canteen</option>
+            <option value="Block-1">Block-1</option>
+            <option value="Block-2">Block-2</option>
+            <option value="Block-3">Block-3</option>
+            <option value="Block-4">Block-4</option>
+            <option value="Block-5">Block-5</option>
+            <option value="Block-6">Block-6</option>
+            <option value="Girls Block 1">Girls Block 1</option>
+            <option value="Girls Block 2">Girls Block 2</option>
+            <option value="Special Block">Special Block</option>
+            <option value="AB-1">AB-1</option>
+            <option value="AB-2">AB-2</option>
+        </select>
+
+        <label for="dropoff">Drop-off Location:</label>
+        <select id="dropoff">
+            <option value="Block-1">Block-1</option>
+            <option value="Block-2">Block-2</option>
+            <option value="Block-3">Block-3</option>
+            <option value="Block-4">Block-4</option>
+            <option value="Block-5">Block-5</option>
+            <option value="Block-6">Block-6</option>
+            <option value="Girls Block 1">Girls Block 1</option>
+            <option value="Girls Block 2">Girls Block 2</option>
+            <option value="Special Block">Special Block</option>
+            <option value="AB-1">AB-1</option>
+            <option value="AB-2">AB-2</option>
+        </select>
+
+        <button onclick="window.location.href='orderpage.html'">Get Order</button>
+        <div id="map"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
