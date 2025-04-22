@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)file:///C:/Users/abhin/Downloads/web.html# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniTrack - Anime &amp; TV Series Tracker</title>
+    <link rel="stylesheet" href="./AniTrack - Anime &amp; TV Series Tracker_files/all.min.css">
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff4d4d;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+        
+        header {
+            background-color: rgba(26, 26, 46, 0.9);
+            color: white;
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ff4d4d, #f9cb28);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        nav {
+            width: 100%;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            position: relative;
+        }
+        
+        .search-bar {
+            display: flex;
+            width: 100%;
+        }
+        
+        .search-bar input {
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            width: 100%;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-bar button {
+            padding: 0 1.5rem;
+            background: linear-gradient(to right, var(--accent), #ff8c66);
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-bar button:hover {
+            background: linear-gradient(to right, #ff3333, #ff704d);
+            transform: scale(1.02);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            color: white;
+        }
+        
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 77, 77, 0.6);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-button {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .feature-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .trending-shows {
+            margin: 4rem 0;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .show-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .show-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .show-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .show-poster {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .show-info {
+            padding: 1rem;
+        }
+        
+        .show-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .show-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: rgba(26, 26, 46, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style-type: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent);
+        }
+
+        /* Search results */
+        .search-results {
+            display: none;
+            background-color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-result-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Status dropdown */
+        .status-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .status-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .status-options {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .status-options a {
+            color: black;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+        }
+
+        .status-options a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .status-dropdown:hover .status-options {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul li a {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .show-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><i class="fas fa-tv"></i> AniTrack</h1>
+            <nav>
+                <ul>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#" class="active" onclick="showSection(&#39;home&#39;)"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="showSection(&#39;watching&#39;)" class=""><i class="fas fa-play-circle"></i> Watching</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="showSection(&#39;completed&#39;)"><i class="fas fa-check-circle"></i> Completed</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="showSection(&#39;on-hold&#39;)" class=""><i class="fas fa-pause-circle"></i> On Hold</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="showSection(&#39;dropped&#39;)"><i class="fas fa-times-circle"></i> Dropped</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="showSection(&#39;plan-to-watch&#39;)" class=""><i class="fas fa-bookmark"></i> Plan to Watch</a></li>
+                </ul>
+                <div class="search-container">
+                    <div class="search-bar">
+                        <input type="text" id="search" placeholder="Search for anime or series..." onkeyup="searchShows()">
+                        <button onclick="performSearch()"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div id="search-results" class="search-results" style="display: none;"><div class="search-result-item">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <img src="https://via.placeholder.com/50x70/4CAF50/ffffff?text=J" alt="Jujutsu Kaisen" style="border-radius: 3px;">
+                            <div>
+                                <div style="font-weight: 600;">Jujutsu Kaisen</div>
+                                <div style="font-size: 0.8rem; color: #666;">24 eps • 8.6/10</div>
+                            </div>
+                        </div>
+                    </div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home-section" class="hero" style="display: block;">
+            <h2>Track Your Anime &amp; TV Series Journey</h2>
+            <p>Never lose track of your favorite shows again. Organize, discover, and connect with a community of passionate fans.</p>
+            <a href="file:///C:/Users/abhin/Downloads/web.html#" class="cta-button" onclick="showSection(&#39;plan-to-watch&#39;)">Get Started <i class="fas fa-arrow-right"></i></a>
+        </section>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>Progress Tracker</h3>
+                <p>Log your watched episodes, set reminders, and track your progress across all your favorite series in one place.</p>
+                <a href="file:///C:/Users/abhin/Downloads/web.html#" class="feature-button" onclick="showTracker()">Start Tracking</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Community Hub</h3>
+                <p>Join discussions, share reviews, and connect with other fans who love the same shows as you.</p>
+                <a href="file:///C:/Users/abhin/Downloads/web.html#" class="feature-button" onclick="showCommunity()">Join Now</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Smart Recommendations</h3>
+                <p>Our AI learns your taste and suggests new shows you'll love based on your watching history.</p>
+                <a href="file:///C:/Users/abhin/Downloads/web.html#" class="feature-button" onclick="getRecommendations()">Get Suggestions</a>
+            </div>
+        </div>
+
+        <section id="trending-section" class="trending-shows" style="display: none;">
+            <h2 class="section-title">Trending This Week</h2>
+            <div class="show-grid" id="trending-shows"><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/6a11cb/ffffff?text=Attack%20on%20Titan" alt="Attack on Titan" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Attack on Titan</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 9</span>
+                        <span>24 eps</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/2575fc/ffffff?text=Demon%20Slayer" alt="Demon Slayer" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Demon Slayer</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.7</span>
+                        <span>26 eps</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/ff4d4d/ffffff?text=Stranger%20Things" alt="Stranger Things" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Stranger Things</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.7</span>
+                        <span>4 seasons</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/4CAF50/ffffff?text=Jujutsu%20Kaisen" alt="Jujutsu Kaisen" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Jujutsu Kaisen</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.6</span>
+                        <span>24 eps</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/FF9800/ffffff?text=The%20Mandalorian" alt="The Mandalorian" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">The Mandalorian</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.8</span>
+                        <span>3 seasons</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/000000/ffffff?text=Death%20Note" alt="Death Note" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Death Note</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.9</span>
+                        <span>37 eps</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/607D8B/ffffff?text=Breaking%20Bad" alt="Breaking Bad" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Breaking Bad</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 9.5</span>
+                        <span>5 seasons</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/FF5722/ffffff?text=One%20Piece" alt="One Piece" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">One Piece</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.8</span>
+                        <span>1000+ eps</span>
+                    </div>
+                </div>
+            </div></div>
+        </section>
+
+        <!-- Status sections (initially hidden) -->
+        <section id="watching-section" class="trending-shows" style="display: none;">
+            <h2 class="section-title">Currently Watching</h2>
+            <div class="show-grid" id="watching-shows"><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/2575fc/ffffff?text=Demon%20Slayer" alt="Demon Slayer" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Demon Slayer</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.7</span>
+                        <span>26 eps</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/FF9800/ffffff?text=The%20Mandalorian" alt="The Mandalorian" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">The Mandalorian</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.8</span>
+                        <span>3 seasons</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/FF5722/ffffff?text=One%20Piece" alt="One Piece" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">One Piece</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.8</span>
+                        <span>1000+ eps</span>
+                    </div>
+                </div>
+            </div></div>
+        </section>
+
+        <section id="completed-section" class="trending-shows" style="display: none;">
+            <h2 class="section-title">Completed Shows</h2>
+            <div class="show-grid" id="completed-shows"><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/6a11cb/ffffff?text=Attack%20on%20Titan" alt="Attack on Titan" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Attack on Titan</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 9</span>
+                        <span>24 eps</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/ff4d4d/ffffff?text=Stranger%20Things" alt="Stranger Things" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Stranger Things</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.7</span>
+                        <span>4 seasons</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/000000/ffffff?text=Death%20Note" alt="Death Note" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Death Note</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.9</span>
+                        <span>37 eps</span>
+                    </div>
+                </div>
+            </div><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/607D8B/ffffff?text=Breaking%20Bad" alt="Breaking Bad" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Breaking Bad</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 9.5</span>
+                        <span>5 seasons</span>
+                    </div>
+                </div>
+            </div></div>
+        </section>
+
+        <section id="on-hold-section" class="trending-shows" style="display: none;">
+            <h2 class="section-title">On Hold</h2>
+            <div class="show-grid" id="on-hold-shows"><div class="show-card">
+                <img src="https://via.placeholder.com/180x250/4CAF50/ffffff?text=Jujutsu%20Kaisen" alt="Jujutsu Kaisen" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">Jujutsu Kaisen</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> 8.6</span>
+                        <span>24 eps</span>
+                    </div>
+                </div>
+            </div></div>
+        </section>
+
+        <section id="dropped-section" class="trending-shows" style="display: none;">
+            <h2 class="section-title">Dropped Shows</h2>
+            <div class="show-grid" id="dropped-shows"><p style="grid-column: 1 / -1; text-align: center;">No shows in this category yet.</p></div>
+        </section>
+
+        <section id="plan-to-watch-section" class="trending-shows" style="display: none;">
+            <h2 class="section-title">Plan to Watch</h2>
+            <div class="show-grid" id="plan-to-watch-shows"><p style="grid-column: 1 / -1; text-align: center;">No shows in this category yet.</p></div>
+        </section>
+    </main>
+
+    <!-- Show Details Modal -->
+    <div id="show-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <div id="modal-content">
+                <h2>The Mandalorian</h2>
+                <div style="display: flex; gap: 2rem; margin: 1.5rem 0;">
+                    <img src="https://via.placeholder.com/180x250/FF9800/ffffff?text=The%20Mandalorian" alt="The Mandalorian" style="border-radius: 5px;">
+                    <div>
+                        <p><strong>Rating:</strong> 8.8/10 <i class="fas fa-star" style="color: gold;"></i></p>
+                        <p><strong>Episodes:</strong> 3 seasons</p>
+                        <div class="status-dropdown" style="margin: 1rem 0;">
+                            <button class="status-btn">Status: On Hold <i class="fas fa-caret-down"></i></button>
+                            <div class="status-options">
+                                <a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="changeStatus(5, &#39;watching&#39;)"><i class="fas fa-play-circle"></i> Watching</a>
+                                <a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="changeStatus(5, &#39;completed&#39;)"><i class="fas fa-check-circle"></i> Completed</a>
+                                <a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="changeStatus(5, &#39;on-hold&#39;)"><i class="fas fa-pause-circle"></i> On Hold</a>
+                                <a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="changeStatus(5, &#39;dropped&#39;)"><i class="fas fa-times-circle"></i> Dropped</a>
+                                <a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="changeStatus(5, &#39;plan-to-watch&#39;)"><i class="fas fa-bookmark"></i> Plan to Watch</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 style="margin: 1rem 0;">Description</h3>
+                <p>The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>AniTrack</h3>
+                <p>Your ultimate companion for tracking anime and TV series. Never lose your place again.</p>
+                <div class="social-links">
+                    <a href="file:///C:/Users/abhin/Downloads/web.html#"><i class="fab fa-twitter"></i></a>
+                    <a href="file:///C:/Users/abhin/Downloads/web.html#"><i class="fab fa-instagram"></i></a>
+                    <a href="file:///C:/Users/abhin/Downloads/web.html#"><i class="fab fa-discord"></i></a>
+                    <a href="file:///C:/Users/abhin/Downloads/web.html#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="showSection(&#39;home&#39;)">Home</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#" onclick="showSection(&#39;trending&#39;)">Browse Shows</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#">Top Rated</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#">Upcoming</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#">News</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#">Help Center</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#">FAQ</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#">Contact Us</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#">Privacy Policy</a></li>
+                    <li><a href="file:///C:/Users/abhin/Downloads/web.html#">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get updates on new shows and features.</p>
+                <div class="search-bar" style="margin-top: 1rem;">
+                    <input type="email" id="newsletter-email" placeholder="Your email">
+                    <button onclick="subscribeNewsletter()" style="padding: 0 1rem;"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2025 AniTrack. All rights reserved. Made with <i class="fas fa-heart" style="color: var(--accent);"></i> for anime and TV fans.
+        </div>
+    </footer>
+
+    <script>
+        // Sample data for shows
+        const shows = [
+            { id: 1, title: "Attack on Titan", rating: 9.0, episodes: "24 eps", status: "completed", color: "6a11cb", description: "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction." },
+            { id: 2, title: "Demon Slayer", rating: 8.7, episodes: "26 eps", status: "watching", color: "2575fc", description: "A family is attacked by demons and only two members survive - Tanjiro and his sister Nezuko, who is turning into a demon slowly. Tanjiro sets out to become a demon slayer to avenge his family and cure his sister." },
+            { id: 3, title: "Stranger Things", rating: 8.7, episodes: "4 seasons", status: "completed", color: "ff4d4d", description: "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl." },
+            { id: 4, title: "Jujutsu Kaisen", rating: 8.6, episodes: "24 eps", status: "plan-to-watch", color: "4CAF50", description: "A boy swallows a cursed talisman - the finger of a demon - and becomes cursed himself. He enters a shaman's school to be able to locate the demon's other body parts and thus exorcise himself." },
+            { id: 5, title: "The Mandalorian", rating: 8.8, episodes: "3 seasons", status: "on-hold", color: "FF9800", description: "The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic." },
+            { id: 6, title: "Death Note", rating: 8.9, episodes: "37 eps", status: "completed", color: "000000", description: "An intelligent high school student goes on a secret crusade to eliminate criminals from the world after discovering a notebook capable of killing anyone whose name is written into it." },
+            { id: 7, title: "Breaking Bad", rating: 9.5, episodes: "5 seasons", status: "completed", color: "607D8B", description: "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future." },
+            { id: 8, title: "One Piece", rating: 8.8, episodes: "1000+ eps", status: "watching", color: "FF5722", description: "Follows the adventures of Monkey D. Luffy and his pirate crew in order to find the greatest treasure ever left by the legendary Pirate, Gold Roger." }
+        ];
+
+        // DOM elements
+        const searchInput = document.getElementById('search');
+        const searchResults = document.getElementById('search-results');
+        const modal = document.getElementById('show-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTrendingShows();
+            organizeShowsByStatus();
+        });
+
+        // Load trending shows
+        function loadTrendingShows() {
+            const trendingContainer = document.getElementById('trending-shows');
+            trendingContainer.innerHTML = '';
+            
+            shows.forEach(show => {
+                const showCard = createShowCard(show);
+                trendingContainer.appendChild(showCard);
+            });
+        }
+
+        // Organize shows by status
+        function organizeShowsByStatus() {
+            const statuses = ['watching', 'completed', 'on-hold', 'dropped', 'plan-to-watch'];
+            
+            statuses.forEach(status => {
+                const container = document.getElementById(`${status}-shows`);
+                container.innerHTML = '';
+                
+                const filteredShows = shows.filter(show => show.status === status);
+                
+                if (filteredShows.length === 0) {
+                    container.innerHTML = `<p style="grid-column: 1 / -1; text-align: center;">No shows in this category yet.</p>`;
+                } else {
+                    filteredShows.forEach(show => {
+                        const showCard = createShowCard(show);
+                        container.appendChild(showCard);
+                    });
+                }
+            });
+        }
+
+        // Create show card element
+        function createShowCard(show) {
+            const showCard = document.createElement('div');
+            showCard.className = 'show-card';
+            showCard.innerHTML = `
+                <img src="https://via.placeholder.com/180x250/${show.color}/ffffff?text=${encodeURIComponent(show.title)}" alt="${show.title}" class="show-poster">
+                <div class="show-info">
+                    <div class="show-title">${show.title}</div>
+                    <div class="show-meta">
+                        <span><i class="fas fa-star"></i> ${show.rating}</span>
+                        <span>${show.episodes}</span>
+                    </div>
+                </div>
+            `;
+            
+            showCard.addEventListener('click', () => showDetails(show));
+            return showCard;
+        }
+
+        // Show details modal
+        function showDetails(show) {
+            modalContent.innerHTML = `
+                <h2>${show.title}</h2>
+                <div style="display: flex; gap: 2rem; margin: 1.5rem 0;">
+                    <img src="https://via.placeholder.com/180x250/${show.color}/ffffff?text=${encodeURIComponent(show.title)}" alt="${show.title}" style="border-radius: 5px;">
+                    <div>
+                        <p><strong>Rating:</strong> ${show.rating}/10 <i class="fas fa-star" style="color: gold;"></i></p>
+                        <p><strong>Episodes:</strong> ${show.episodes}</p>
+                        <div class="status-dropdown" style="margin: 1rem 0;">
+                            <button class="status-btn">Status: ${formatStatus(show.status)} <i class="fas fa-caret-down"></i></button>
+                            <div class="status-options">
+                                <a href="#" onclick="changeStatus(${show.id}, 'watching')"><i class="fas fa-play-circle"></i> Watching</a>
+                                <a href="#" onclick="changeStatus(${show.id}, 'completed')"><i class="fas fa-check-circle"></i> Completed</a>
+                                <a href="#" onclick="changeStatus(${show.id}, 'on-hold')"><i class="fas fa-pause-circle"></i> On Hold</a>
+                                <a href="#" onclick="changeStatus(${show.id}, 'dropped')"><i class="fas fa-times-circle"></i> Dropped</a>
+                                <a href="#" onclick="changeStatus(${show.id}, 'plan-to-watch')"><i class="fas fa-bookmark"></i> Plan to Watch</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 style="margin: 1rem 0;">Description</h3>
+                <p>${show.description}</p>
+            `;
+            modal.style.display = 'flex';
+        }
+
+        // Format status for display
+        function formatStatus(status) {
+            const statusMap = {
+                'watching': 'Watching',
+                'completed': 'Completed',
+                'on-hold': 'On Hold',
+                'dropped': 'Dropped',
+                'plan-to-watch': 'Plan to Watch'
+            };
+            return statusMap[status] || status;
+        }
+
+        // Change show status
+        function changeStatus(showId, newStatus) {
+            const showIndex = shows.findIndex(show => show.id === showId);
+            if (showIndex !== -1) {
+                shows[showIndex].status = newStatus;
+                organizeShowsByStatus();
+                closeModal();
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Search functionality
+        function searchShows() {
+            const query = searchInput.value.toLowerCase();
+            searchResults.innerHTML = '';
+            
+            if (query.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            const filteredShows = shows.filter(show => 
+                show.title.toLowerCase().includes(query)
+            );
+            
+            if (filteredShows.length > 0) {
+                filteredShows.forEach(show => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <img src="https://via.placeholder.com/50x70/${show.color}/ffffff?text=${show.title.substring(0,1)}" alt="${show.title}" style="border-radius: 3px;">
+                            <div>
+                                <div style="font-weight: 600;">${show.title}</div>
+                                <div style="font-size: 0.8rem; color: #666;">${show.episodes} • ${show.rating}/10</div>
+                            </div>
+                        </div>
+                    `;
+                    resultItem.addEventListener('click', () => {
+                        showDetails(show);
+                        searchResults.style.display = 'none';
+                        searchInput.value = '';
+                    });
+                    searchResults.appendChild(resultItem);
+                });
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                searchResults.style.display = 'block';
+            }
+        }
+
+        // Perform search when button is clicked
+        function performSearch() {
+            searchShows();
+        }
+
+        // Show different sections
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('main > section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the selected section
+            document.getElementById(`${sectionId}-section`).style.display = 'block';
+            
+            // Update active nav link
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate the corresponding nav link
+            const navLinks = document.querySelectorAll('nav ul li a');
+            for (let i = 0; i < navLinks.length; i++) {
+                if (navLinks[i].getAttribute('onclick').includes(sectionId)) {
+                    navLinks[i].classList.add('active');
+                    break;
+                }
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Feature functions
+        function showTracker() {
+            alert("Tracker feature would open here with your watch progress");
+        }
+        
+        function showCommunity() {
+            alert("Community section would open here with discussions and clubs");
+        }
+        
+        function getRecommendations() {
+            alert("Loading personalized recommendations based on your watch history...");
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletter-email').value;
+            if (email && email.includes('@')) {
+                alert(`Thank you for subscribing with ${email}! You'll receive our updates.`);
+                document.getElementById('newsletter-email').value = '';
+            } else {
+                alert("Please enter a valid email address");
+            }
+        }
+
+        // Close search results when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!searchContainer.contains(event.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+    </script>
+
+</body></html>
